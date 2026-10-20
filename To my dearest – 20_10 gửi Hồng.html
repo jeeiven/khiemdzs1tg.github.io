@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>To my dearest – 20/10 gửi Hồng</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#ffe3ee;--bg2:#ffd0e0;--bg3:#fff1f6;
+  --ink:#5b2340;--accent:#e0457b;--paper:#fffaf6;--paper-edge:#f7c6d8;--shadow:rgba(224,69,123,.28);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg1:#2a0f20;--bg2:#3d1730;--bg3:#1d0a16;
+    --ink:#ffe6ef;--accent:#ff7fa8;--paper:#3a1a2d;--paper-edge:#6b2c4b;--shadow:rgba(0,0,0,.5);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg1:#2a0f20;--bg2:#3d1730;--bg3:#1d0a16;
+  --ink:#ffe6ef;--accent:#ff7fa8;--paper:#3a1a2d;--paper-edge:#6b2c4b;--shadow:rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;color:var(--ink);
+  font-family:"Quicksand","Segoe UI",Arial,sans-serif;
+  background:radial-gradient(circle at 20% 10%,var(--bg3),transparent 55%),linear-gradient(160deg,var(--bg1),var(--bg2));
+  background-color:var(--bg1);
+  overflow-x:hidden;
+}
+#rain{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.petal{position:absolute;top:-60px;will-change:transform;animation:fall linear forwards}
+.petal svg{width:100%;height:100%;display:block}
+@keyframes fall{
+  0%{transform:translate3d(0,0,0) rotate(0)}
+  100%{transform:translate3d(var(--dx),calc(100vh + 120px),0) rotate(var(--rot))}
+}
+main{position:relative;z-index:2;max-width:680px;margin:0 auto;padding:28px 18px 170px;text-align:center}
+.hello{font-family:"Dancing Script",cursive;font-size:clamp(2.2rem,8vw,3.4rem);color:var(--accent);margin:18px 0 4px;line-height:1.15}
+.sub{margin:0 0 22px;font-size:1.05rem;opacity:.85}
+
+/* envelope */
+#env{margin:34px auto 0;width:min(300px,82vw);aspect-ratio:3/2;position:relative;cursor:pointer;border:0;background:none;padding:0;display:block;animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+#env .body{position:absolute;inset:0;background:linear-gradient(160deg,#ff9fbe,#f06292);border-radius:10px;box-shadow:0 14px 30px var(--shadow)}
+#env .flap{position:absolute;left:0;right:0;top:0;height:60%;background:linear-gradient(180deg,#ff86ad,#ec6a98);clip-path:polygon(0 0,100% 0,50% 100%);border-radius:10px 10px 0 0}
+#env .seal{position:absolute;left:50%;top:48%;width:56px;height:56px;margin:-28px 0 0 -28px;font-size:34px;line-height:56px;text-align:center;background:#fff;border-radius:50%;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.hint{margin-top:22px;font-weight:600;color:var(--accent)}
+
+/* letter */
+#letter{display:none;text-align:left;margin-top:8px;background:var(--paper);border:2px solid var(--paper-edge);border-radius:18px;padding:30px 26px 34px;box-shadow:0 18px 44px var(--shadow);position:relative}
+#letter.show{display:block;animation:rise .9s cubic-bezier(.2,.8,.2,1)}
+@keyframes rise{from{opacity:0;transform:translateY(40px) scale(.96)}to{opacity:1;transform:none}}
+#letter::before,#letter::after{content:"🌸";position:absolute;font-size:34px}
+#letter::before{top:-18px;left:-10px;transform:rotate(-18deg)}
+#letter::after{top:-18px;right:-10px;transform:rotate(18deg)}
+#letter h1{font-family:"Dancing Script",cursive;font-size:clamp(2rem,7vw,2.7rem);color:var(--accent);margin:0 0 10px}
+#letter p{margin:0 0 16px;line-height:1.85;font-size:1.05rem;opacity:0;transform:translateY(12px);animation:in .8s forwards}
+#letter p.lead{font-weight:600;font-size:1.1rem;line-height:1.7}
+#letter p:nth-of-type(1){animation-delay:.5s}
+#letter p:nth-of-type(2){animation-delay:1.3s}
+#letter p:nth-of-type(3){animation-delay:2.1s}
+#letter p:nth-of-type(4){animation-delay:2.9s}
+#letter p:nth-of-type(5){animation-delay:3.7s}
+#letter p:nth-of-type(6){animation-delay:4.5s}
+@keyframes in{to{opacity:1;transform:none}}
+.sign{font-family:"Dancing Script",cursive;font-size:1.9rem;color:var(--accent);text-align:right;margin-top:8px}
+.again{display:block;margin:22px auto 0;padding:10px 22px;border:0;border-radius:999px;background:var(--accent);color:#fff;font:600 1rem "Quicksand",Arial,sans-serif;cursor:pointer;box-shadow:0 6px 16px var(--shadow)}
+
+/* garden */
+#garden{position:fixed;left:0;right:0;bottom:0;height:150px;z-index:3;pointer-events:none;display:flex;align-items:flex-end;justify-content:space-around;padding-bottom:env(safe-area-inset-bottom,0px)}
+.stem{position:relative;width:8%;min-width:34px;display:flex;flex-direction:column;align-items:center;transform-origin:bottom center;animation:sway 3.4s ease-in-out infinite alternate}
+.stem .fl{width:100%;aspect-ratio:1;margin-bottom:-6px}
+.stem .fl svg{width:100%;height:100%;display:block;filter:drop-shadow(0 3px 4px rgba(0,0,0,.18))}
+.stem .st{width:4px;background:linear-gradient(#4caf50,#2e7d32);border-radius:2px;position:relative}
+.stem .st::before,.stem .st::after{content:"";position:absolute;width:16px;height:9px;background:#43a047;border-radius:0 100% 0 100%;top:40%}
+.stem .st::before{left:3px}
+.stem .st::after{right:3px;transform:scaleX(-1);top:62%}
+@keyframes sway{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+@media (prefers-reduced-motion:reduce){.petal,#env,.stem{animation:none}}
+</style>
+</head>
+<body>
+<div id="rain" aria-hidden="true"></div>
+
+<main>
+  <div id="intro">
+    <div class="hello">Gửi Hồng 🌷</div>
+    <p class="sub">Một bó hoa nhỏ nhân ngày 20/10</p>
+    <button id="env" aria-label="Mở thư"><span class="body"></span><span class="flap"></span><span class="seal">💌</span></button>
+    <div class="hint">Chạm vào phong thư để mở nhé ✨</div>
+  </div>
+
+  <article id="letter">
+    <h1>To my dearest,</h1>
+    <p class="lead">Dành cho cậu<br>Dành cho 20/10<br><br>Nhưng cũng là dành cho mọi ngày 🌹</p>
+    <p>Chúc cô gái của tớ ngày 20/10 thật nhiều niềm vui, ngày càng xinh đẹp, dễ thương, ăn ngon ngủ ngon, ít stress và lúc nào cũng cười thật tươi nhé. Mong cậu có tất cả trừ vất vả và dù học tập có đôi lúc áp lực, hãy nhớ luôn có tớ ở đây sẵn sàng lắng nghe, chia sẻ và tiếp thêm năng lượng cho cậu nhéee cô gái của tớ. 🌸</p>
+    <p>Cảm ơn cậu vì đã đến, mang theo nụ cười vui tươi, rạng rỡ và những tiếng cười, hạnh phúc vào cuộc sống của tớ. Ngoài ra, vì đã luôn lắng nghe và cùng tớ chia sẻ từng khoảnh khắc từ những niềm vui nhỏ bé cho đến những câu chuyện đêm khuya. Có cậu, những ngày trôi qua dù mệt mỏi cũng đều trở nên nhẹ nhàng hơn rất nhiều dù tớ không thức cùng cậu được… 🌼</p>
+    <p>Mong cậu đừng quá khắt khe với bản thân, không áp lực quá và nhớ giữ gìn sức khỏe bản thân. Cậu đã cố gắng nhiều rồi nên cũng hãy nhẹ nhàng hơn với bản thân mình nhé. Ý là cậu tuyệt lắm luôn ý. 🌷</p>
+    <p>Mong rằng những ngày tháng qua màn hình sẽ sớm qua đi để Khiêm có thể gặp lại cậu và trao cậu cái ôm thiệt chặt 😊 bù cho những ngày xa cách. Hãy nhớ rằng có một người đẹp trai luôn chờ cậu nha!!! 💐</p>
+    <p>Thương cậu nhìu 💗</p>
+    <div class="sign">– Khim –</div>
+    <button class="again" id="more">Tặng thêm hoa 🌺</button>
+  </article>
+</main>
+
+<div id="garden" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bloom" viewBox="-50 -50 100 100">
+      <g fill="currentColor">
+        <ellipse cx="0" cy="-24" rx="14" ry="25"/>
+        <ellipse cx="0" cy="-24" rx="14" ry="25" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-24" rx="14" ry="25" transform="rotate(120)"/>
+        <ellipse cx="0" cy="-24" rx="14" ry="25" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-24" rx="14" ry="25" transform="rotate(240)"/>
+        <ellipse cx="0" cy="-24" rx="14" ry="25" transform="rotate(300)"/>
+      </g>
+      <circle r="12" fill="#ffd54f"/>
+      <circle r="5" fill="#ff9800"/>
+    </symbol>
+  </defs>
+</svg>
+
+<script>
+(function(){
+  var colors=["#ff6f9f","#ff9ebd","#f06292","#ffb3c8","#ff8a65","#ba68c8","#ffd54f","#f48fb1","#ec407a"];
+  var emojis=["🌸","🌷","🌹","🌺","🌼","💮","🌻","🪷"];
+  var rain=document.getElementById("rain");
+  var ns="http://www.w3.org/2000/svg";
+
+  function bloom(color){
+    var s=document.createElementNS(ns,"svg");
+    s.setAttribute("viewBox","-50 -50 100 100");
+    s.style.color=color;
+    var u=document.createElementNS(ns,"use");
+    u.setAttribute("href","#bloom");
+    s.appendChild(u);
+    return s;
+  }
+  function rnd(a,b){return a+Math.random()*(b-a)}
+  function pick(a){return a[Math.floor(Math.random()*a.length)]}
+
+  function petal(){
+    var el=document.createElement("div");
+    el.className="petal";
+    var size=rnd(18,44);
+    el.style.width=el.style.height=size+"px";
+    el.style.left=rnd(-5,100)+"vw";
+    el.style.setProperty("--dx",rnd(-120,120)+"px");
+    el.style.setProperty("--rot",rnd(-540,540)+"deg");
+    el.style.animationDuration=rnd(7,14)+"s";
+    el.style.opacity=rnd(.7,1);
+    if(Math.random()<.5){
+      el.appendChild(bloom(pick(colors)));
+    }else{
+      el.style.fontSize=size+"px";
+      el.style.lineHeight="1";
+      el.textContent=pick(emojis);
+    }
+    el.addEventListener("animationend",function(){el.remove()});
+    rain.appendChild(el);
+  }
+
+  var timer=setInterval(function(){ if(!document.hidden) petal(); },380);
+  for(var i=0;i<14;i++) setTimeout(petal,i*160);
+
+  function burst(n){
+    for(var i=0;i<n;i++) setTimeout(petal,i*45);
+  }
+
+  // Vườn hoa phía dưới
+  var garden=document.getElementById("garden");
+  var count=Math.max(8,Math.min(16,Math.round(window.innerWidth/70)));
+  for(var j=0;j<count;j++){
+    var st=document.createElement("div");
+    st.className="stem";
+    st.style.animationDelay=(-Math.random()*3)+"s";
+    st.style.width=rnd(7,10.5)+"%";
+    var f=document.createElement("div");
+    f.className="fl";
+    f.appendChild(bloom(colors[j%colors.length]));
+    var stalk=document.createElement("div");
+    stalk.className="st";
+    stalk.style.height=rnd(40,105)+"px";
+    st.appendChild(f);
+    st.appendChild(stalk);
+    garden.appendChild(st);
+  }
+
+  // Mở thư
+  var env=document.getElementById("env");
+  var intro=document.getElementById("intro");
+  var letter=document.getElementById("letter");
+  env.addEventListener("click",function(){
+    intro.style.display="none";
+    letter.classList.add("show");
+    window.scrollTo({top:0,behavior:"smooth"});
+    burst(46);
+  });
+  document.getElementById("more").addEventListener("click",function(){burst(60)});
+})();
+</script>
+</body>
+</html>
